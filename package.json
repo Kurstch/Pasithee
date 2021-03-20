@@ -1,0 +1,28 @@
+{
+  "name": "pasithee",
+  "version": "1.0.0",
+  "description": "A desktop app that reminds to take a break at regular intervals",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc && electron dist/main.js"
+  },
+  "author": "Kurstch",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^12.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurstch/Pasithee.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "bugs": {
+    "url": "https://github.com/Kurstch/Pasithee/issues"
+  },
+  "homepage": "https://github.com/Kurstch/Pasithee#readme"
+}
