@@ -6,7 +6,7 @@ let top: any = {} // prevent gc to keep windows
 
 app.once('ready', () => {
     top.window = createWindow()
-    top.tray = createTray()
+    top.tray = createTray(top.window)
 })
 
 app.on('before-quit', () => {
