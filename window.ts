@@ -10,6 +10,7 @@ export default function createWindow() {
             nodeIntegration: false,
             webSecurity: true,
             contextIsolation: true,
+            preload: path.join(__dirname, './preload.js')
         }
     })
 
