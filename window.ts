@@ -13,7 +13,7 @@ export default function createWindow() {
         }
     })
 
-    window.loadFile(path.join(__dirname, 'index.html'))
+    window.loadFile(path.join(__dirname, '../index.html'))
 
     window.on('close', (event: any) => {
         event.sender.hide() // hide the window
