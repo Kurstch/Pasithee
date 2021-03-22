@@ -17,15 +17,15 @@ export default class Timer {
             this.minutes = (this.diff / 60) | 0
             this.seconds = (this.diff % 60) | 0
 
+            if (typeof this.onTick === 'function') {
+                this.onTick(this.minutes, this.seconds, this.diff)
+            }
+
             if (this.diff <= 0) {
                 this.stop()
                 if (typeof this.onDone === 'function') {
                     this.onDone()
                 }
-            }
-
-            if (typeof this.onTick === 'function') {
-                this.onTick(this.minutes, this.seconds, this.diff)
             }
         }, 1000)
     }
