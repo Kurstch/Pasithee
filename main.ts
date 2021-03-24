@@ -26,15 +26,20 @@ timer.onTick = (minutes, seconds, diff) => {
 }
 
 timer.onDone = () => {
+    // break time done
     if (breakTime) {
         top.window.minimizable = true
         top.window.closable = true
     }
+    // work time done, start break timer
     else {
         top.window.minimizable = false
         top.window.closable = false
         top.window.show()
-        timer.start(10) // break timer, temp duration
+        // Attempt to get break time duration from localStorage and start break timer
+        top.window.webContents
+            .executeJavaScript('localStorage.breakTimeDuration', true)
+            .then((duration: number) => timer.start((duration || 10) * 60))
     }
     breakTime = !breakTime
 }
@@ -43,6 +48,7 @@ ipcMain.on('start-timer', (event, duration) => {
     if (breakTime) {
         top.window.minimizable = true
         top.window.closable = true
+        breakTime = false
     }
     timer.start(duration)
 })
