@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.button {
+    outline: none;
+    margin: 0 60px;
+    font-size: 14px;
+    transition: .4s;
+}
+
+#timer, #buttons {
+    display: flex;
+    width: 100vw;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttons {
+    #start-timer-button {
+        padding: .7em;
+        font-weight: 600;
+        background: #3451a0;
+        color: white;
+        border: none;
+        border-radius: 10px;
+    }
+
+    #start-timer-button:hover {
+        cursor: pointer;
+        transform: translateY(-3px);
+    }
+}
+
+footer {
+    display: flex;
+    width: 100vw;
+    height: 20vh;
+    align-items: center;
+
+    #open-settings-button {
+        padding: 5px;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #00000000;
+    }
+
+    #open-settings-button:hover {
+        cursor: pointer;
+        border-bottom: 1px solid black;
+    }
+}
+
+#settings {
+    width: 100vw;
+    height: 60vh;
+    background-color: white;
+    position: absolute;
+    transform: translateY(100vh);
+    transition: all .4s;
+
+    .head {
+        display: flex;
+        width: calc(100vw - 120px);
+        height: 10vh;
+        padding: 0 60px;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 -5px 5px 1px lightgray;
+        border-radius: 20px 20px 0 0;
+    }
+
+    #close-settings-button {
+        border-radius: 10px;
+        background-color: transparent;
+        padding: 5px;
+        border: 1px solid #ff000000;
+    }
+
+    #close-settings-button:hover {
+        cursor: pointer;
+        border: 1px solid red;
+    }
+
+    .setting {
+        margin: 30px 60px;
+
+        input[type="number"] {
+            border: none;
+            align-content: center;
+            width: 2em;
+            text-align: center;
+            border-bottom: 1px solid darkgray;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    }
+}
+
+#settings.show {
+    transform: translateY(-60vh);
+}

@@ -7,26 +7,40 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pasithee</title>
+        <link rel="stylesheet" href="./dist/style.css">
         <script defer src="./dist/renderer.js"></script>
     </head>
 
     <body>
-        <h1 id="timer"></h1>
-        <section>
-            <button id="start-timer-button">Start timer</button>
+        <h1 id="timer">00m 00s</h1>
+
+        <section id="buttons">
+            <button id="start-timer-button" class="button">Start timer</button>
         </section>
 
-        <section class="settings">
-            <div class="setting">
+        <footer>
+            <button id="open-settings-button" class="button">Settings</button>
+        </footer>
+
+        <section id="settings">
+
+            <section class="head">
+                <h4>Settings</h4>
+                <button id="close-settings-button" class="button">Close</button>
+            </section>
+
+            <section class="setting">
                 <span>Work duration:</span>
                 <input type="number" name="work-duration" id="work-duration-input" value="20">
                 <span>minutes</span>
-            </div>
-            <div class="setting">
+            </section>
+
+            <section class="setting">
                 <span>Break duration:</span>
                 <input type="number" name="break-duration" id="break-duration-input" value="5">
                 <span>minutes</span>
-            </div>
+            </section>
+
         </section>
     </body>
 

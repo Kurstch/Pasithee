@@ -3,9 +3,12 @@ import * as path from 'path'
 
 export default function createWindow() {
     const window = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 700,
+        height: 500,
         center: true,
+        autoHideMenuBar: true,
+        resizable: false,
+        icon: path.join(__dirname, '../icon.png'),
         webPreferences: {
             nodeIntegration: false,
             webSecurity: true,
