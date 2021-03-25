@@ -4,13 +4,15 @@
   "description": "A desktop app that reminds to take a break at regular intervals",
   "main": "dist/main.js",
   "scripts": {
-    "start": "tsc && electron dist/main.js"
+    "compile": "tsc && sass style.scss dist/style.css",
+    "start": "npm run compile && electron dist/main.js"
   },
   "author": "Kurstch",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "electron": "^12.0.1",
+    "sass": "^1.32.8",
     "typescript": "^4.2.3"
   },
   "repository": {
