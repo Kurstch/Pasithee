@@ -1,7 +1,8 @@
 declare interface Window {
     electron: {
         startTimer: (duration: number) => void,
-        onTick: (func: Function) => void
+        onTick: (func: Function) => void,
+        setAutoLaunch: (autoLaunch: boolean) => void,
     }
 }
 
@@ -9,6 +10,7 @@ const timerLabel = document.getElementById('timer')
 const startTimerButton = document.getElementById('start-timer-button')
 const workDurationInput = document.getElementById('work-duration-input') as HTMLInputElement
 const breakDurationInput = document.getElementById('break-duration-input') as HTMLInputElement
+const autoLaunchCheckbox = document.getElementById('auto-launch-checkbox') as HTMLInputElement
 const openSettingsButton = document.getElementById('open-settings-button')
 const closeSettingsButton = document.getElementById('close-settings-button')
 const settingsSection = document.getElementById('settings')
@@ -16,10 +18,16 @@ const settingsSection = document.getElementById('settings')
 // Set input values from localStorage
 if (localStorage.workTimeDuration) workDurationInput.value = localStorage.workTimeDuration
 if (localStorage.breakTimeDuration) breakDurationInput.value = localStorage.breakTimeDuration
+if (localStorage.autoLaunch) autoLaunchCheckbox.checked = true
 
 // Save work and break time durations in localStorage
 workDurationInput.onchange = () => localStorage.workTimeDuration = workDurationInput.value
 breakDurationInput.onchange = () => localStorage.breakTimeDuration = breakDurationInput.value
+
+autoLaunchCheckbox.onchange = () => {
+    localStorage.autoLaunch = autoLaunchCheckbox.checked
+    window.electron.setAutoLaunch(autoLaunchCheckbox.checked)
+}
 
 // Show and hide settings panel
 openSettingsButton.onclick = () => settingsSection.classList.add('show')

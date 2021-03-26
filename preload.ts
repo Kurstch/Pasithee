@@ -7,4 +7,5 @@ contextBridge.exposeInMainWorld('electron', {
      */
     onTick: (func: Function) =>
         ipcRenderer.on('timer-tick', (event, ...args) => func(...args)),
+    setAutoLaunch: (autoLaunch: boolean) => ipcRenderer.send('set-auto-launch', autoLaunch)
 })

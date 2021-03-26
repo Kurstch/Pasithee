@@ -52,3 +52,9 @@ ipcMain.on('start-timer', (event, duration) => {
     }
     timer.start(duration)
 })
+
+ipcMain.on('set-auto-launch', (event, autoLaunch) => {
+    app.setLoginItemSettings({
+        openAtLogin: autoLaunch
+    })
+})
